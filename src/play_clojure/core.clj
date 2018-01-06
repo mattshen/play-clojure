@@ -1,18 +1,14 @@
 (ns play-clojure.core
-  (:gen-class))
-
-(require '[clojure.java.jdbc :as j])
+  (:gen-class)
+  (require [clojure.java.jdbc :as j])
+  (require [play-clojure.databases :as db]))
 
 (defn xyz [x y z] 
   (println (str x y z)))
 
-(def mysql-db {:dbtype "mysql"
-               :dbname "awtest"
-               :user "root"
-               :password ""})
-
-(j/query mysql-db
-  ["select * from task"])
+;; Test select
+(defn testdb []
+  ((pprint (j/query db/mysql1 "show tables"))))
 
 (defn -main
   "I don't do a whole lot ... yet."
