@@ -1,7 +1,8 @@
 (ns play-clojure.core
   (:gen-class)
   (require [clojure.java.jdbc :as j])
-  (require [play-clojure.databases :as db]))
+  (require [play-clojure.databases :as db])
+  (use [clojure.pprint :only [print-table]]))
 
 (defn xyz [x y z] 
   (println (str x y z)))
